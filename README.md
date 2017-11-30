@@ -15,4 +15,4 @@ This app show the rating of movies .
 
 
 ## UI
-- Bootstrap
+- xBootstrap
