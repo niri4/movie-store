@@ -82,28 +82,25 @@
 				</div>
 
 			</nav>
-			<div class="row">
+			<div class="row">	<i>
 				<div class="col-md-4">
 					<img alt="<% @movies.title %>" src="<%= @movies.image_url %>" class="img-thumbnail" />
 				</div>
 				<div class="col-md-8">
 					<h3>
-						<%= @movies.title %>
+						<%= @movies.title + " " + "(#{@movies.year})"%> <%= image_tag 'rating.png' ,class: "rating-show-image"%><p class= "rating-show"> <%= @movies.rating %></p>
 					</h3>
-					<dl>
-						<dt>
-							Genre
-						</dt>
-						<dd>
-							<%= @movies.genre %>
-						</dd>
-						<dt>
-							Plot
-						</dt>
-						<dd>
-							<%= @movies.plot%>
-						</dd>
-					</dl>
+          <div>
+							<b><i>Genre:</i></b>
+
+							<i><%= @movies.genre %></i>
+          </div>
+          <div>
+						<h2>	Plot</h2>
+
+							<p><%= @movies.plot%></p>
+          </div>
+
 				</div>
 			</div>
 			<div class="row up-margin">

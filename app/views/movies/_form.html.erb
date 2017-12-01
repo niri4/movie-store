@@ -37,6 +37,16 @@
       <%= f.text_area :plot, class: "form-control", required: true %>
     </div>
   </div>
+
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2">
+      year
+    </label>
+    <div class="col-sm-10">
+      <%= f.date_field :year, as: :year%>
+    </div>
+  </div>
+
   <div class="form-group">
     <label for="inputEmail3" class="col-sm-2">
       Rating
