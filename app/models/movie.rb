@@ -1,3 +1,4 @@
 class Movie < ApplicationRecord
-  validates_presence_of :title,:genre,:plot,:rating,:web
+  mount_uploader :image, MovieUploader
+  validates_presence_of :title,:genre,:plot,:image,:rating,:web
 end
