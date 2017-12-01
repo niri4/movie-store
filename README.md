@@ -9,7 +9,7 @@ This app show the rating of movies .
 
 
 ## Model
-- movie - title:string content: text cover_photo :string
+- movie - title:string genre:string plot:text image:string rating:string web:string year:integer
 - User - Devise
 - Comment - movie_id:reference  user_id: reference comment: text
 
