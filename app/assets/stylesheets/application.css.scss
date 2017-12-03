@@ -1,3 +1,17 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "movies";
+.header-setting{
+  color: gold;
+  padding-top: 30px;
+  margin-left: 40px;
+}
+.page-header {
+  padding-bottom: 26px !important;
+  margin: 0px !important;
+  border-bottom: 1px solid #eeeeee !important;
+  background-color: black !important;
+}
+.header-nav{
+  background-color: black;
+}
