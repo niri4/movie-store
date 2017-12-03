@@ -16,3 +16,6 @@ This app show the rating of movies .
 
 ## UI
 - xBootstrap
+
+##refactoring
+- make common helper method for root page

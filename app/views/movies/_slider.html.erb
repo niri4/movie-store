@@ -1,0 +1,30 @@
+<%
+first = movies.first
+if movies.second.present?
+  second = movies.second
+else
+  second = movies.last
+end
+  third = movies.last
+%>
+<div class="carousel slide" id="carousel-687387">
+  <ol class="carousel-indicators">
+    <li class="active" data-slide-to="0" data-target="#carousel-687387">
+    </li>
+    <li data-slide-to="1" data-target="#carousel-687387">
+    </li>
+    <li data-slide-to="2" data-target="#carousel-687387">
+    </li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="item active">
+      <img alt="Carousel Bootstrap First" src="<%= first.image_url%>" class="slider-custom"/>
+    </div>
+    <div class="item">
+      <img alt="Carousel Bootstrap Second" src="<%= second.image_url%>" class="slider-custom" />
+    </div>
+    <div class="item">
+      <img alt="Carousel Bootstrap Third" src="<%= third.image_url%>" class="slider-custom" />
+    </div>
+  </div> <a class="left carousel-control" href="#carousel-687387" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-687387" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+</div>

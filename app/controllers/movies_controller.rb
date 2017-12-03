@@ -4,6 +4,9 @@ class MoviesController < ApplicationController
   before_action :set_id,except:[:new,:create,:index]
 
   def index
+    @movies = Movie.all.order('created_at desc').limit(3)
+    @movies_rating = Movie.all.order('rating desc').limit(4)
+    @movies_view = Movie.all.order('rating desc').limit(4)
   end
 
   def new
@@ -30,10 +33,6 @@ class MoviesController < ApplicationController
 
   def destroy
   end
-
-
-
-
 
   private
   def movie_params

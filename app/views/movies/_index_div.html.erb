@@ -1,0 +1,40 @@
+<%
+first = movies.first
+if movies.second.present?
+  second = movies.second
+else
+  second = movies.last
+end
+if movies.third.present?
+  third = movies.third
+else
+  third = movies.last
+end
+  fourth = movies.last
+%>
+<div class="row">
+  <div class="col-md-3">
+    <img alt="Bootstrap Image Preview" src="<%= first.image_url%>" class="img-rounded image-setting-index" />
+    <h3 class="text-center text-info">
+      <%= first.title.titleize%>
+    </h3>
+  </div>
+  <div class="col-md-3">
+    <img alt="Bootstrap Image Preview" src="<%= second.image_url%>" class="img-rounded image-setting-index" />
+    <h3 class="text-center text-info">
+      <%= second.title.titleize%>
+    </h3>
+  </div>
+  <div class="col-md-3">
+    <img alt="Bootstrap Image Preview" src="<%= third.image_url%>" class="img-rounded image-setting-index" />
+    <h3 class="text-center text-info">
+      <%= third.title.titleize%>
+    </h3>
+  </div>
+  <div class="col-md-3">
+    <img alt="Bootstrap Image Preview" src="<%= fourth.image_url%>" class="img-rounded image-setting-index" />
+    <h3 class="text-center text-info">
+      <%= fourth.title.titleize%>
+    </h3>
+  </div>
+</div>
