@@ -16,7 +16,14 @@
 .header-nav{
   background-color: black;
 }
-
+.heading{
+  text-decoration: none;
+  color: gold;
+}
+a.heading:hover{
+    color: gold;
+    text-decoration: none;
+}
 #myFooter {
     background-color: black;
     color: white;
