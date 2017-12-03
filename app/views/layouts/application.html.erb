@@ -9,6 +9,11 @@
   </head>
 
   <body class= "container">
-    <%= yield %>
+    <div class="row">
+  		<div class="col-md-12">
+        <%= render 'shared/header'%>
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
