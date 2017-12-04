@@ -18,4 +18,4 @@ This app show the rating of movies .
 - xBootstrap
 
 ##refactoring
-- make common helper method for root page
+- xmake common helper method for root page

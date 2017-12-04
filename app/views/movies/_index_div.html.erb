@@ -1,15 +1,7 @@
 <%
-first = movies.first
-if movies.second.present?
-  second = movies.second
-else
-  second = movies.last
-end
-if movies.third.present?
-  third = movies.third
-else
-  third = movies.last
-end
+  first = movies.first
+  second = set_attribute(movies,"second")
+  third = set_attribute(movies,"third")
   fourth = movies.last
 %>
 <div class="row">

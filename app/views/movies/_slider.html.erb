@@ -1,10 +1,6 @@
 <%
-first = movies.first
-if movies.second.present?
-  second = movies.second
-else
-  second = movies.last
-end
+  first = movies.first
+  second = set_attribute(movies,"second")
   third = movies.last
 %>
 <div class="carousel slide" id="carousel-687387">
