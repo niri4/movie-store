@@ -17,5 +17,5 @@ This app show the rating of movies .
 ## UI
 - xBootstrap
 
-##refactoring
+## Refactoring
 - xmake common helper method for root page
