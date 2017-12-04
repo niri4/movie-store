@@ -4,15 +4,15 @@
 			</h3>
 			<div class="tabbable" id="tabs-467327">
 				<ul class="nav nav-tabs">
-					<li class="active">
+					<li class="<%= rating_active?(@view)%>">
 						<a href="#panel-827709" data-toggle="tab">By Ratings</a>
 					</li>
-					<li>
+					<li class="<%= view_active?(@view)%>">
 						<a href="#panel-277598" data-toggle="tab">By Views</a>
 					</li>
 				</ul>
 				<div class="tab-content">
-					<div class="tab-pane active" id="panel-827709">
+					<div class="tab-pane <%= rating_active?(@view)%>" id="panel-827709">
 						<% if @movies_rating.present? %>
 							<div class="row">
 								<% @movies_rating.each do |movies| %>
@@ -32,7 +32,7 @@
 						</p>
 						<% end%>
 					</div>
-					<div class="tab-pane" id="panel-277598">
+					<div class="tab-pane <%= view_active?(@view)%>" id="panel-277598">
 						<% if @movies_view.present? %>
 							<div class="row">
 								<% @movies_view.each do |movies| %>

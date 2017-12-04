@@ -9,7 +9,7 @@
   </h3>
   <%= render partial: "index_div",locals: { movies: @movies_view} %>
   <div class="col-md-12">
-    <%= link_to "Browse More",root_path, class: "browse-index"%>
+    <%= link_to "Browse More",movies_detail_path(view: "views"), class: "browse-index"%>
   </div>
 <% end %>
 <% if @movies_rating.present? %>
@@ -20,6 +20,6 @@
       <%= render partial: "index_div",locals: { movies: @movies_rating} %>
     </div>
     <div class="col-md-12">
-      <%= link_to "Browse More",root_path, class: "browse-index"%>
+      <%= link_to "Browse More",movies_detail_path(view: "rating"), class: "browse-index"%>
     </div>
 <% end%>

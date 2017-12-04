@@ -12,6 +12,7 @@ class MoviesController < ApplicationController
   def detail
     @movies_rating = Movie.all.order('rating desc')
     @movies_view = Movie.all.order('rating Asc')
+    @view = params[:view]
   end
 
   def new
