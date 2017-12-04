@@ -6,25 +6,33 @@
 %>
 <div class="row">
   <div class="col-md-3">
+    <a href="<%= movie_path(first)%>">
     <img alt="Bootstrap Image Preview" src="<%= first.image_url%>" class="img-rounded image-setting-index" />
+  </a>
     <h3 class="text-center text-info">
       <%= first.title.titleize%>
     </h3>
   </div>
   <div class="col-md-3">
-    <img alt="Bootstrap Image Preview" src="<%= second.image_url%>" class="img-rounded image-setting-index" />
+    <a href="<%= movie_path(second)%>">
+      <img alt="Bootstrap Image Preview" src="<%= second.image_url%>" class="img-rounded image-setting-index" />
+    </a>
     <h3 class="text-center text-info">
       <%= second.title.titleize%>
     </h3>
   </div>
   <div class="col-md-3">
-    <img alt="Bootstrap Image Preview" src="<%= third.image_url%>" class="img-rounded image-setting-index" />
+    <a href="<%= movie_path(third)%>">
+      <img alt="Bootstrap Image Preview" src="<%= third.image_url%>" class="img-rounded image-setting-index" />
+    </a>
     <h3 class="text-center text-info">
       <%= third.title.titleize%>
     </h3>
   </div>
   <div class="col-md-3">
-    <img alt="Bootstrap Image Preview" src="<%= fourth.image_url%>" class="img-rounded image-setting-index" />
+    <a href="<%= movie_path(fourth)%>">
+      <img alt="Bootstrap Image Preview" src="<%= fourth.image_url%>" class="img-rounded image-setting-index" />
+    </a>
     <h3 class="text-center text-info">
       <%= fourth.title.titleize%>
     </h3>
