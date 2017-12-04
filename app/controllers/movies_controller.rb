@@ -1,12 +1,17 @@
 class MoviesController < ApplicationController
 
   #before_action :authenticate_user!
-  before_action :set_id,except:[:new,:create,:index]
+  before_action :set_id,except:[:new,:create,:index,:detail]
 
   def index
     @movies = Movie.all.order('created_at desc').limit(3)
     @movies_rating = Movie.all.order('rating desc').limit(4)
-    @movies_view = Movie.all.order('rating desc').limit(4)
+    @movies_view = Movie.all.order('rating Asc').limit(4)
+  end
+
+  def detail
+    @movies_rating = Movie.all.order('rating desc')
+    @movies_view = Movie.all.order('rating Asc')
   end
 
   def new

@@ -1,47 +1,57 @@
 <div class="col-md-12">
 			<h3>
-				h3. Lorem ipsum dolor sit amet.
+				Movies Details
 			</h3>
 			<div class="tabbable" id="tabs-467327">
 				<ul class="nav nav-tabs">
 					<li class="active">
-						<a href="#panel-827709" data-toggle="tab">Section 1</a>
+						<a href="#panel-827709" data-toggle="tab">By Ratings</a>
 					</li>
 					<li>
-						<a href="#panel-277598" data-toggle="tab">Section 2</a>
+						<a href="#panel-277598" data-toggle="tab">By Views</a>
 					</li>
 				</ul>
 				<div class="tab-content">
 					<div class="tab-pane active" id="panel-827709">
+						<% if @movies_rating.present? %>
+							<div class="row">
+								<% @movies_rating.each do |movies| %>
+								<div class="col-md-3">
+							    <a href="<%= movie_path(movies)%>">
+							    <img alt="Bootstrap Image Preview" src="<%= movies.image_url%>" class="img-rounded image-setting-index" />
+							  </a>
+							    <h3 class="text-center text-info">
+							      <%= movies.title.titleize%>
+							    </h3>
+							  </div>
+								<%end%>
+							</div>
+						<% else%>
 						<p>
-							I'm in Section 1.
+							No Movie Present
 						</p>
+						<% end%>
 					</div>
 					<div class="tab-pane" id="panel-277598">
+						<% if @movies_view.present? %>
+							<div class="row">
+								<% @movies_view.each do |movies| %>
+								<div class="col-md-3">
+							    <a href="<%= movie_path(movies)%>">
+							    <img alt="Bootstrap Image Preview" src="<%= movies.image_url%>" class="img-rounded image-setting-index" />
+							  </a>
+							    <h3 class="text-center text-info">
+							      <%= movies.title.titleize%>
+							    </h3>
+							  </div>
+								<%end%>
+							</div>
+						<% else%>
 						<p>
-							Howdy, I'm in Section 2.
+							No Movie Present
 						</p>
+						<% end%>
 					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-3">
-				</div>
-				<div class="col-md-3">
-				</div>
-				<div class="col-md-3">
-				</div>
-				<div class="col-md-3">
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-3">
-				</div>
-				<div class="col-md-3">
-				</div>
-				<div class="col-md-3">
-				</div>
-				<div class="col-md-3">
 				</div>
 			</div>
 		</div>

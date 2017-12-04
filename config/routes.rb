@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  get 'movies/detail' => 'movies#detail',as: :movies_detail
   resources :movies
+
   root to: "movies#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
