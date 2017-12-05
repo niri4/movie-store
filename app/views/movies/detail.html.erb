@@ -15,16 +15,19 @@
 					<div class="tab-pane <%= rating_active?(@view)%>" id="panel-827709">
 						<% if @movies_rating.present? %>
 							<div class="row">
-								<% @movies_rating.each do |movies| %>
-								<div class="col-md-3">
-							    <a href="<%= movie_path(movies)%>">
-							    <img alt="Bootstrap Image Preview" src="<%= movies.image_url%>" class="img-rounded image-setting-index" />
-							  </a>
-							    <h3 class="text-center text-info">
-							      <%= movies.title.titleize%>
-							    </h3>
-							  </div>
-								<%end%>
+                <% @movies_rating.each_slice(4) do |movies_rating| %>
+  								<% movies_rating.each do |movies| %>
+  								<div class="col-md-3">
+  							    <a href="<%= movie_path(movies)%>">
+  							             <img alt="Bootstrap Image Preview" src="<%= movies.image_url%>" class="img-rounded image-setting-index" />
+  							    </a>
+  							    <h3 class="text-center text-info">
+  							      <%= movies.title.titleize%>
+  							    </h3>
+  							  </div>
+  								<%end%>
+                  <div style="clear:both;"></div>
+                <%end%>
 							</div>
 						<% else%>
 						<p>
@@ -35,16 +38,19 @@
 					<div class="tab-pane <%= view_active?(@view)%>" id="panel-277598">
 						<% if @movies_view.present? %>
 							<div class="row">
-								<% @movies_view.each do |movies| %>
-								<div class="col-md-3">
-							    <a href="<%= movie_path(movies)%>">
-							    <img alt="Bootstrap Image Preview" src="<%= movies.image_url%>" class="img-rounded image-setting-index" />
-							  </a>
-							    <h3 class="text-center text-info">
-							      <%= movies.title.titleize%>
-							    </h3>
-							  </div>
-								<%end%>
+                <% @movies_view.each_slice(4) do |movies_view| %>
+  								<% movies_view.each do |movies| %>
+  								<div class="col-md-3">
+  							    <a href="<%= movie_path(movies)%>">
+  							    <img alt="Bootstrap Image Preview" src="<%= movies.image_url%>" class="img-rounded image-setting-index" />
+  							  </a>
+  							    <h3 class="text-center text-info">
+  							      <%= movies.title.titleize%>
+  							    </h3>
+  							  </div>
+  								<%end%>
+                  <div style="clear:both;"></div>
+                <%end%>
 							</div>
 						<% else%>
 						<p>
