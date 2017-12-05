@@ -14,7 +14,33 @@
 							<h4>Top 10 list of <%= @movies.genre%></h4>
 						</h3>
 					</div>
-						<%= render partial: "movie_top_list",locals: { movies: @movies} %>
+					<div class="panel-body table-responsive">
+					  <table class="table">
+					    <thead>
+					      <tr>
+					        <th>
+					          #
+					        </th>
+					        <th>
+					          Name
+					        </th>
+					        <th>
+					          Genre
+					        </th>
+					      </tr>
+					    </thead>
+							<tbody>
+								<% if @movies_list.present? %>
+								<% @movies_list.each_with_index do |movie_list,index| %>
+
+									<%= render partial: "movie_top_list",locals: { movies: movie_list,index: index} %>
+									<%end%>
+								<%else%>
+								No Movie Present with this genre
+								<%end%>
+							</tbody>
+							</table>
+						</div>
 				</div>
 			</div>
 		</div>
