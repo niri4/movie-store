@@ -29,6 +29,7 @@ class MoviesController < ApplicationController
   end
 
   def show
+    View.create(movie_id: @movies.id)
   end
 
   def edit
@@ -49,7 +50,7 @@ class MoviesController < ApplicationController
     @movies = Movie.find(params[:id])
   end
   def get_view
-    @movies_view = Movie.all.order('rating Asc')
+    @movies_view = Movie.select("movies.*, COUNT(*) AS group_count").joins(:views).joins("JOIN views rg on rg.movie_id = views.movie_id").group('movies.id').order('group_count DESC')
   end
   def get_rating
     @movies_rating = Movie.all.order('rating desc')
