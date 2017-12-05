@@ -1,0 +1,6 @@
+<%= form_tag movies_detail_path, :method => 'get',class: "navbar-form navbar-left" do %>
+  <div class="form-group">
+    <%= text_field_tag :search, params[:search],class:"form-control" %>
+  </div>
+    <%= submit_tag "Search", :name => nil,class: "btn btn-default" %>
+<% end %>
