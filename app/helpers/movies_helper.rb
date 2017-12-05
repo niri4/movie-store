@@ -19,7 +19,9 @@ module MoviesHelper
   def rating_active?(view)
     if view == "rating"
       return "active"
+    elsif view == "views"
     else
+      return "active"
     end
   end
   def view_active?(view)

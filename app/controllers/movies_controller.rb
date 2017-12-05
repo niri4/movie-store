@@ -30,7 +30,7 @@ class MoviesController < ApplicationController
 
   def show
     View.create(movie_id: @movies.id)
-    @movies_list = Movie.where(genre: @movies.genre).order('rating Desc') 
+    @movies_list = Movie.where(genre: @movies.genre).order('rating Desc')
   end
 
   def edit
