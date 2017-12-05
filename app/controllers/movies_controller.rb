@@ -2,16 +2,16 @@ class MoviesController < ApplicationController
 
   #before_action :authenticate_user!
   before_action :set_id,except:[:new,:create,:index,:detail]
+  before_action :get_rating,only:[:index,:detail]
+  before_action :get_view,only:[:index,:detail]
 
   def index
     @movies = Movie.all.order('created_at desc').limit(3)
-    @movies_rating = Movie.all.order('rating desc').limit(4)
-    @movies_view = Movie.all.order('rating Asc').limit(4)
+    @movies_view = @movies_view.limit(4)
+    @movies_rating = @movies_rating.limit(4)
   end
 
   def detail
-    @movies_rating = Movie.all.order('rating desc')
-    @movies_view = Movie.all.order('rating Asc')
     @view = params[:view]
   end
 
@@ -47,6 +47,12 @@ class MoviesController < ApplicationController
 
   def set_id
     @movies = Movie.find(params[:id])
+  end
+  def get_view
+    @movies_view = Movie.all.order('rating Asc')
+  end
+  def get_rating
+    @movies_rating = Movie.all.order('rating desc')
   end
 
 end
