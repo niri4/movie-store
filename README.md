@@ -10,7 +10,7 @@ This app show the rating of movies .
 
 ## Model
 - xmovie - title:string genre:string plot:text image:string rating:string web:string year:integer cast:text
-- User - Devise
+- xUser - Devise
 - Comment - movie_id:reference  user_id: reference comment: text
 - xview - user:references
 

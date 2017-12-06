@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'movies/detail' => 'movies#detail',as: :movies_detail
   resources :movies
 
