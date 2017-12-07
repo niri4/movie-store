@@ -1,19 +1,16 @@
 <div class="col-md-12">
   Be the First to Comment
   <h4>Reviews</h4>
-  <form role="form" class="form-inline">
-    <img alt="<% movies.title %>" src="<%= movies.image_url %>" class="img-thumbnail user-img-img-show" align="middle"/>
+  <%= form_for([movies, movies.comments.new],class:"form-inline") do |f| %>
+
     <div class="form-group">
-
-      <textarea rows="4" cols="50">
-      </textarea>
-
+      <img alt="<% movies.title %>" src="<%= movies.image_url %>" class="img-thumbnail user-img-img-show" align="middle"/>
+      <%= f.text_area :body,class: "comment-box" %>
     </div>
-  </br>
-    <div class="form-group comment-show">
-    <button type="submit" class="btn btn-primary">
-      Submit
-    </button>
+      <div class="form-group comment-show">
+
+      <%= f.submit "submit",class: "btn btn-primary" %>
     </div>
-  </form>
+  <% end %>
+
 </div>

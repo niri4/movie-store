@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171206151023) do
+ActiveRecord::Schema.define(version: 20171207082002) do
+
+  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text "body"
+    t.bigint "movie_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["movie_id"], name: "index_comments_on_movie_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
   create_table "movies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
@@ -49,5 +59,7 @@ ActiveRecord::Schema.define(version: 20171206151023) do
     t.index ["movie_id"], name: "index_views_on_movie_id"
   end
 
+  add_foreign_key "comments", "movies"
+  add_foreign_key "comments", "users"
   add_foreign_key "views", "movies"
 end

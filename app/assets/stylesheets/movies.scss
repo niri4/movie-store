@@ -10,8 +10,9 @@
   margin-left: 0px;
 }
 .user-img-img-show{
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
+  margin-top: -104px;
 }
 .comment-show{
   float: right;
@@ -71,4 +72,9 @@ img.image-setting-index:hover {
 }
 a.top-list{
   color: #fff;
+}
+.comment-box{
+  margin: 0px;
+  height: 114px;
+  width: 451px;
 }
