@@ -1,8 +1,10 @@
 <%= form_for @movies do |f| %>
 <% if @movies.errors.any? %>
   <% @movies.errors.full_messages.each do |error| %>
-  <%= error.inspect%>
-      <!-- js add_gritter(error, title: "Task1 Notification", sticky: false,time: 5000) %> -->
+  <div class="alert alert-alert alert-dismissable">
+   <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+   <strong><%= error%></strong>
+  </div>
   <% end%>
   <%end%>
   <div class="form-group">

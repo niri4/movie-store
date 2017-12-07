@@ -1,0 +1,19 @@
+
+<% if flash[:error].present? %>
+<div class="alert alert-error alert-dismissable">
+ <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+ <strong><%= flash[:error] %></strong>
+</div>
+<% elsif flash[:alert].present?%>
+<div class="alert alert-alert alert-dismissable">
+ <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+ <strong><%= flash[:alert] %></strong>
+</div>
+
+<%elsif flash[:notice].present?%>
+<div class="alert alert-success alert-dismissable">
+ <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+ <strong><%= flash[:notice] %></strong>
+</div>
+
+<%end%>

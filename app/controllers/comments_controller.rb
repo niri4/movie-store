@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
    @comment.user_id = current_user.id
    @comment.movie_id = params[:movie_id]
    if @comment.save
-     redirect_to movie_path(params[:movie_id])
+     redirect_to movie_path(params[:movie_id]),notice: "Review add successfully"
    else
    end
  end
