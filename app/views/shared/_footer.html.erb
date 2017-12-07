@@ -7,17 +7,21 @@
             <div class="col-sm-4">
                 <h5>Get started</h5>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Sign up</a></li>
+                    <li><a href="<%= root_path%>">Home</a></li>
+                    <% if user_signed_in? %>
+                    <li><%= link_to "SignOut",destroy_user_session_path,method: :delete%></li>
+                    <%else%>
+                    <li><a href="<%= new_user_registration_path%>">Sign up</a></li>
+                    <%end%>
                     <li><a href="#">Downloads</a></li>
                 </ul>
             </div>
 
             <div class="col-sm-3">
                 <div class="social-networks">
-                    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                    <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+                    <a href="https://twitter.com/niri4" class="twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/niri4" class="facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                    <a href="https://plus.google.com/116609894960334238811" class="google" target="_blank"><i class="fa fa-google-plus"></i></a>
                 </div>
                 <button type="button" class="btn btn-default">Contact us</button>
             </div>
