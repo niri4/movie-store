@@ -3,6 +3,28 @@
 	<div class="col-md-12">
 		<div class="row">
 			<div class="col-md-6">
+				<div class="row back-color">
+				</br>
+					<%if @movies.comments.present? %>
+
+							<%@movies.comments.order('created_at desc').limit(3).reverse.each do |comment| %>
+							<div class="col-md-3">
+								<img alt="<% comment.user.name %>" src="<%= comment.user.image%>" class="img-thumbnail user-img-show" align="middle"/>
+							</div>
+							<div class="col-md-9 comment">
+								<p>
+									<%= comment.body%>
+								</p>
+							</div>
+
+							<div class="clearfix"></div>
+							</br>
+							<%end%>
+							<div class="col-md-12">
+								<a href="#" style="float: right;">More Reviews</a>
+							</div>
+					<%end%>
+			</div>
 				<div class="row">
 								<%= render partial: "movie_comment",locals: { movies: @movies}  %>
 				</div>
