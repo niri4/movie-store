@@ -1,43 +1,104 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+<div class="container">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+    <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+        <%= render 'devise/shared/icon'%>
+            <div class="panel-body" >
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put,:class => 'form-horizontal'}) do |f| %>
+                <%= devise_error_messages! %>
+                <div class="text-center">
+                  <%if current_user.image.present? %>
+                    <img  id ="blah" src="<%= current_user.image %>" class="avatar img-circle" alt="avatar" width="30%" height="30%">
+                  <%else%>
+                  <%= image_tag "avatar.png",id: "blah",class: "avatar img-circle", width:"30%", height:"30%" %>
+                  <!-- <img  id ="blah" src="" class="avatar img-circle" alt="avatar" width="30%" height="30%"> -->
+                  <% end%>
+                  <h6>Upload a different photo...</h6>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-picture-o" aria-hidden="true"></i></span>
+                    <%= f.file_field :image, class: "form-control",autofocus: true,id:"imgInp" %>
+                  </div>
+                </div>
+                </br>
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                  <%= f.text_field :name, class: "form-control", placeholder: "eg: Jhon Snow",autofocus: true,required:true %>
+                </div>
+                </br>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                <%= f.email_field :email, class: "form-control", placeholder: "eg: john@abc.com",autofocus: true,required:true %>
+              </div>
+              </br>
 
-<h3>Cancel my account</h3>
+                <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                  <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                <% end %>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+                <div class="input-group">
 
-<%= link_to "Back", :back %>
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                  <%= f.password_field :password, autocomplete: "off", class: "form-control",placeholder: "(leave blank if you don't want to change it)" %>
+
+                </div>
+                <% if @minimum_password_length %>
+                  <br />
+                  <em><%= @minimum_password_length %> characters minimum</em>
+                <% end %>
+              </br>
+                <div class="input-group">
+
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                  <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control",placeholder: "Password Confirmation" %>
+                </div>
+              </br>
+
+                <div class="input-group">
+
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                  <%= f.password_field :current_password, autocomplete: "off", class: "form-control",placeholder: "(we need your current password to confirm your changes)" %>
+                </div>
+              </br>
+
+              <div class="form-group">
+                <div class="col-sm-12 controls">
+
+                <%= f.submit "Update" ,class: "btn btn-primary pull-right glyphicon glyphicon-log-in" %>
+              </div>
+              </div>
+              <% end %>
+
+              <h3>Cancel my account</h3>
+
+              <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+              <%= link_to "Back", root_path %>
+
+            </div>
+        </div>
+    </div>
+</div>
+<%= render 'devise/shared/svn'%>
+
+<script>
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#blah').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#imgInp").change(function(){
+    readURL(this);
+});
+</script>

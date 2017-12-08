@@ -5,17 +5,20 @@
 
         <%= render 'devise/shared/icon'%>
             <div class="panel-body" >
-
               <%= form_for(resource, as: resource_name, url: registration_path(resource_name),:html => {:class => 'form-horizontal'}) do |f| %>
                 <%= devise_error_messages! %>
+                <div class="text-center">
+                  <%= image_tag "avatar.png",id: "blah",class: "avatar img-circle", width:"30%", height:"30%" %>
+                  <h6>Upload a  photo...</h6>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-picture-o" aria-hidden="true"></i></span>
+                    <%= f.file_field :image, class: "form-control",autofocus: true,id:"imgInp" %>
+                  </div>
+                </div>
+                </br>
                 <div class="input-group">
                   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                   <%= f.text_field :name, class: "form-control", placeholder: "eg: Jhon Snow",autofocus: true,required:true %>
-                </div>
-              </br>
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-picture-o" aria-hidden="true"></i></span>
-                  <%= f.file_field :image, class: "form-control",autofocus: true %>
                 </div>
               </br>
                 <div class="input-group">
@@ -36,7 +39,7 @@
 
                 <div class="input-group">
                   <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                  <%= f.password_field :password_confirmation, class: "form-control",placeholder:"Password",autocomplete: "off",required:true %>
+                  <%= f.password_field :password_confirmation, class: "form-control",placeholder:"Password Confirmation",autocomplete: "off",required:true %>
                 </div>
               </br>
 
@@ -55,3 +58,21 @@
     </div>
 </div>
 <%= render 'devise/shared/svn'%>
+
+<script>
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#blah').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#imgInp").change(function(){
+    readURL(this);
+});
+</script>
