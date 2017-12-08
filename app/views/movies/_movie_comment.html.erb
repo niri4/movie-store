@@ -4,7 +4,16 @@
   <%= form_for([movies, movies.comments.new],class:"form-inline") do |f| %>
 
     <div class="form-group">
-      <img alt="<% movies.title %>" src="<%= movies.comments.first.user.image_url %>" class="img-thumbnail user-img-img-show" align="middle"/>
+      <% if user_signed_in?%>
+        <%if current_user.image.present? %>
+        <img alt="<% movies.title %>" src="<%= current_user.image_url %>" class="img-thumbnail user-img-img-show" align="middle"/>
+        <%else%>
+        <%= image_tag "avatar.png",id: "blah",class: "img-thumbnail user-img-img-show",align:"middle" %>
+        <% end%>
+      <% else %>
+        <%= image_tag "avatar.png",id: "blah",class: "img-thumbnail user-img-img-show",align:"middle" %>
+      <% end%>
+
       <%= f.text_area :body,class: "comment-box" %>
     </div>
       <div class="form-group comment-show">

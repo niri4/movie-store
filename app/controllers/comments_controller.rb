@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
    if @comment.save
      redirect_to movie_path(params[:movie_id]),notice: "Review add successfully"
    else
+     redirect_to movie_path(params[:movie_id]),alert: "Review cannot Saved"
    end
  end
 

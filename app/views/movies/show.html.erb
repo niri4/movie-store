@@ -3,9 +3,10 @@
 	<div class="col-md-12">
 		<div class="row">
 			<div class="col-md-6">
-				<div class="row back-color">
-				</br>
+
 					<%if @movies.comments.present? %>
+					<div class="row back-color">
+					</br>
 
 							<%@movies.comments.order('created_at desc').limit(3).reverse.each do |comment| %>
 							<div class="col-md-3">
@@ -26,8 +27,11 @@
 								</button>
 							</div>
 							<%= render partial: "movie_comment_show",locals: {movies: @movies}%>
+						</div>
+						<%else%>
+						Be the first to comment
 					<%end%>
-			</div>
+
 				<div class="row">
 								<%= render partial: "movie_comment",locals: { movies: @movies}  %>
 				</div>
