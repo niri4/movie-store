@@ -21,8 +21,11 @@
 							</br>
 							<%end%>
 							<div class="col-md-12">
-								<a href="#" style="float: right;">More Reviews</a>
+								<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong" style="float: right;">
+								  More Reviews
+								</button>
 							</div>
+							<%= render partial: "movie_comment_show",locals: {movies: @movies}%>
 					<%end%>
 			</div>
 				<div class="row">

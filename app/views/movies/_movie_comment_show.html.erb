@@ -1,0 +1,30 @@
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLongTitle" style="text-align: center;">Reviews(<%= @movies.comments.length %>)</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%movies.comments.order('created_at desc').each do |comment| %>
+        <div class="col-md-3">
+          <img alt="<% comment.user.name %>" src="<%= comment.user.image%>" class="img-thumbnail user-img-show" align="middle"/>
+        </div>
+        <div class="col-md-9 comment">
+          <p>
+            <%= comment.body%>
+          </p>
+        </div>
+
+        <div class="clearfix"></div>
+        </br>
+        <%end%>
+      </div>
+      <div class="modal-footer" style="text-align:center;">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
