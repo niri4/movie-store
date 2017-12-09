@@ -58,3 +58,4 @@ gem 'carrierwave', '~> 1.0'
 gem "font-awesome-rails"
 gem 'devise'
 gem 'activeadmin'
+gem 'draper'
