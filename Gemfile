@@ -57,3 +57,4 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'carrierwave', '~> 1.0'
 gem "font-awesome-rails"
 gem 'devise'
+gem 'activeadmin'
