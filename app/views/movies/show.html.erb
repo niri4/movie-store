@@ -10,9 +10,15 @@
 
 							<%@movies.comments.order('created_at desc').limit(3).reverse.each do |comment| %>
 							<div class="col-md-3">
+								<% if comment.user.image.present? %>
 								<img alt="<% comment.user.name %>" src="<%= comment.user.image%>" class="img-thumbnail user-img-show" align="middle"/>
+					      <% else %>
+					        <%= image_tag "avatar.png",id: "blah",class: "img-thumbnail user-img-show",align:"middle" %>
+					      <% end%>
+
 							</div>
 							<div class="col-md-9 comment">
+								<h3><%=  comment.user.name.titleize%></h3>
 								<p>
 									<%= comment.body%>
 								</p>
