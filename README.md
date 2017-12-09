@@ -3,9 +3,9 @@ This app show the rating of movies .
 
 ## Workflow:
 - xMovies Workflow
-- Authentication
+- xAuthentication
 - Authorization
-- Comments Section
+- xComments Section
 
 
 ## Model
