@@ -1,6 +1,6 @@
 ActiveAdmin.register User do
   decorate_with UserDecorator
-
+  actions :all,except:[:new]
   index do
     selectable_column
     id_column
@@ -12,4 +12,6 @@ ActiveAdmin.register User do
     column :created_at
     actions
   end
+  filter :name
+  filter :email
 end
