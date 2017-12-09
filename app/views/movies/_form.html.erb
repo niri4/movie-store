@@ -1,12 +1,14 @@
+<%@movies = movies%>
 <%= form_for @movies do |f| %>
 <% if @movies.errors.any? %>
   <% @movies.errors.full_messages.each do |error| %>
-  <div class="alert alert-alert alert-dismissable">
+  <div class="alert alert-danger alert-dismissable">
    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
    <strong><%= error%></strong>
   </div>
   <% end%>
   <%end%>
+
   <div class="form-group">
     <label for="inputEmail3" class="col-sm-2">
       Title
@@ -15,64 +17,69 @@
       <%= f.text_field :title, class: "form-control", required: true %>
     </div>
   </div>
-  <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2">
-      Poster
-    </label>
-    <div class="col-sm-10">
-      <%= f.file_field :image, class: "form-control", required: true %>
+  <% if view == "automatic" %>
+  <%= hidden_field_tag 'view', view %>
+  <%else%>
+  <%= hidden_field_tag 'view', view %>
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2">
+        Poster
+      </label>
+      <div class="col-sm-10">
+        <%= f.file_field :image, class: "form-control", required: true %>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2">
-      genre
-    </label>
-    <div class="col-sm-10">
-      <%= f.text_field :genre, class: "form-control", required: true %>
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2">
+        genre
+      </label>
+      <div class="col-sm-10">
+        <%= f.text_field :genre, class: "form-control", required: true %>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2">
-      Plot
-    </label>
-    <div class="col-sm-10">
-      <%= f.text_area :plot, class: "form-control", required: true %>
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2">
+        Plot
+      </label>
+      <div class="col-sm-10">
+        <%= f.text_area :plot, class: "form-control", required: true %>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2">
-      Cast
-    </label>
-    <div class="col-sm-10">
-      <%= f.text_area :cast, class: "form-control", required: true %>
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2">
+        Cast
+      </label>
+      <div class="col-sm-10">
+        <%= f.text_area :cast, class: "form-control", required: true %>
+      </div>
     </div>
-  </div>
 
-  <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2">
-      year
-    </label>
-    <div class="col-sm-10">
-      <%= f.date_field :year, as: :year%>
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2">
+        year
+      </label>
+      <div class="col-sm-10">
+        <%= f.date_field :year, as: :year%>
+      </div>
     </div>
-  </div>
 
-  <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2">
-      Rating
-    </label>
-    <div class="col-sm-10">
-      <%= f.number_field :rating, class: "form-control", required: true %>
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2">
+        Rating
+      </label>
+      <div class="col-sm-10">
+        <%= f.number_field :rating, class: "form-control", required: true %>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2">
-      Website
-    </label>
-    <div class="col-sm-10">
-      <%= f.text_field :web, class: "form-control", required: true %>
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2">
+        Website
+      </label>
+      <div class="col-sm-10">
+        <%= f.text_field :web, class: "form-control", required: true %>
+      </div>
     </div>
-  </div>
+  <%end%>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <%= f.submit "Add new Moviews",class: "btn btn-success btn-block"%>

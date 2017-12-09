@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
 
-  #before_action :authenticate_user!
-  before_action :set_id,except:[:new,:create,:index,:detail]
+  before_action :authenticate_admin!,only: [:create]
+  before_action :set_id,except:[:index,:detail]
   before_action :get_rating,only:[:index,:detail]
   before_action :get_view,only:[:index,:detail]
 
@@ -26,16 +26,15 @@ class MoviesController < ApplicationController
 
   end
 
-  def new
-    @movies = Movie.new
-  end
-
   def create
-    @movies =  Movie.new(movie_params)
-    if @movies.save
-      redirect_to @movies,notice: "movie Successfully Saved"
+    if params[:view] =="automatic"
     else
-      render :new
+      @movies =  Movie.new(movie_params)
+      if @movies.save
+        redirect_to admin_movie_path,notice: "movie Successfully Saved"
+      else
+        redirect_to new_admin_movie_path
+      end
     end
   end
 
