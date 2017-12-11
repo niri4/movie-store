@@ -1,6 +1,6 @@
 ActiveAdmin.register Movie do
   permit_params :title,:image,:genre,:plot,:rating,:web,:year,:cast,:view
-  decorate_with UserDecorator
+  decorate_with MovieDecorator
 
   index do
     selectable_column
@@ -17,7 +17,7 @@ ActiveAdmin.register Movie do
   filter :genre
 
   action_item :new_movie,only: :index do
-    link_to "Automatically Movie Upload", "http://localhost:3000/admin/movies/new?view=automatic"
+    link_to "Automatically Movie Upload", "#{ Rails.application.secrets.url}/admin/movies/new?view=automatic"
   end
 
   form :html => { :enctype => "multipart/form-data" } do |f|
