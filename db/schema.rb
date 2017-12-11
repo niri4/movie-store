@@ -92,7 +92,5 @@ ActiveRecord::Schema.define(version: 20171209202104) do
     t.index ["movie_id"], name: "index_views_on_movie_id"
   end
 
-  add_foreign_key "comments", "movies"
-  add_foreign_key "comments", "users"
   add_foreign_key "views", "movies"
 end
