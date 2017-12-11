@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Thank You For Your Time to review <%= @movie.title.titleize%></h1>
+    <p>
+      Thank You for review,<%=@user.name%>.<br>
+      your review to the <%= @movie.title.titleize %> is: <br>
+      <%= @comment.body%>
+    </p>
+
+    <p>Thanks for reviewing and have a great day!</p>
+  </body>
+</html>

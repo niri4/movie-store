@@ -5,6 +5,14 @@ class CommentsController < ApplicationController
    @comment.user_id = current_user.id
    @comment.movie_id = params[:movie_id]
    if @comment.save
+     Thread.new{
+       @email = ReviewMail.new
+       @m = Movie.find(params[:movie_id])
+       @email.thankyou_mail(current_user,@m,@comment)
+
+
+     }
+
      redirect_to movie_path(params[:movie_id]),notice: "Review add successfully"
    else
      redirect_to movie_path(params[:movie_id]),alert: "Review cannot Saved"
