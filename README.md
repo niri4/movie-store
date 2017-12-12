@@ -1,5 +1,6 @@
 ## Movie-Store
 This app show the rating of movies .
+the website link https://niri-movie-store.herokuapp.com/
 
 ## Workflow:
 - xMovies Workflow
