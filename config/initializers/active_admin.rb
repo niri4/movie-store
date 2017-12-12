@@ -9,7 +9,7 @@ ActiveAdmin.setup do |config|
   config.comments = false
   config.namespace :admin do |admin|
     admin.build_menu :utility_navigation do |menu|
-      menu.add label: "© 2017 Movie Store", url: "http://localhost:3000",
+      menu.add label: "© 2017 Movie Store", url: "#{ Rails.application.secrets.url}",
                                           html_options: { target: :blank }
       admin.add_current_user_to_menu  menu
       admin.add_logout_button_to_menu menu
@@ -18,7 +18,7 @@ ActiveAdmin.setup do |config|
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
   #
-   config.site_title_link = "http://localhost:3000"
+   config.site_title_link = "#{ Rails.application.secrets.url}"
 
   # Set an optional image to be displayed for the header
   # instead of a string (overrides :site_title)
